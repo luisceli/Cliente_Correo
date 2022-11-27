@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Css/normalize.css" />
+    <link rel="stylesheet" href="Css/pagina_correo.css" />
+    <title>Pagina correo</title>
+  </head>
+  <body>
+    <div class="main_body">
+      <div class="sidebar">
+        <button class="sidebar__compose">
+          <span class="material-symbols-outlined">add</span>
+          Seleccione
+        </button>
+        <div class="sidebarOption sidebarOption__active">
+          <span class="material-symbols-outlined"
+            ><span class="material-symbols-outlined"> contact_mail </span></span
+          >
+          <h3>Redactar</h3>
+        </div>
+
+        <div class="sidebarOption">
+          <span class="material-symbols-outlined"
+            ><span class="material-symbols-outlined"> filter_list </span></span
+          >
+          <h3>Listar</h3>
+        </div>
+      </div>
+    </div>
+
+
+        <!-- caja de envio  -->
+
+        <div class="container">
+              
+          <div id="wrapper">
+              <h2>Enviar mensaje</h2>
+            
+              <form action="">
+                <label for="Asunto">Asunto</label>
+                <input type="text" name="asunto">
+
+                <label for="De">De</label>
+                <input type="text" name="de">
+
+                <label for="Para">Para</label>
+                <input type="email" name="para">
+
+                <textarea name="msg" placeholder="Contenido Mensaje"></textarea>
+
+                <input type="submit">
+                
+              </form>
+              
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  </body>
+</html>

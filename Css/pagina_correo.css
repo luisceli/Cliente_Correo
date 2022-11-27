@@ -108,3 +108,51 @@ tbody tr:hover {
     background-color: rgb(47, 255, 0);
     color: black;
 }
+
+
+/* formulario */
+
+#wrapper{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px auto;
+    padding: 30px;
+    background: #468cb8;
+    font-size: 14px;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+#wrapper h2{
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+
+}
+#wrapper label{
+    color:white;
+}
+form{
+    width: 700px;
+    margin: auto;
+}
+input{
+    width: 660px;
+    padding: 8px;
+    margin: 12px;
+    border: none;
+}
+textarea{
+    font-size: 18px;
+    margin: 15px;
+    padding: 10px;
+    min-width: 640px;
+    max-width: 640px;
+    min-height: 100px;
+    max-height: 200px;
+    border: none;
+    margin-bottom: 5px;
+}
