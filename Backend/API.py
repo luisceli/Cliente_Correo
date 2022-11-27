@@ -1,6 +1,7 @@
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI as fast
 import RecibirCorreo as rc
+import baseModels as bm
 
 app = fast()
 
@@ -39,8 +40,8 @@ def validarUsuario (pag,user,pas):
     return respuesta
 
 @app.post("/enviarCorreo")
-def ingresarUsuario (Correo):
-    print(Correo)
+def ingresarUsuario (correo: bm.Correo):
+    print(correo)
     return True
 
 
