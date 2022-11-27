@@ -37,3 +37,10 @@ def validarUsuario (user,pas):
 def validarUsuario (pag,user,pas):
     respuesta = rc.listaCorreos(pag,user,pas)
     return respuesta
+
+@app.post("/enviarCorreo")
+def ingresarUsuario (Correo):
+    print(Correo)
+    return True
+
+

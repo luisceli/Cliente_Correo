@@ -7,8 +7,8 @@ from datetime import datetime
 # Datos del usuario
 #username = input("Correo: ")
 #password = getpass("Password: ")
-username = 'marcelolatino.mx@gmail.com'
-password = 'himlbcjvrjroplpl'
+#username = 'marcelolatino.mx@gmail.com'
+#password = 'himlbcjvrjroplpl'
 
 def conexionCorreo (username,password):
     imap = imaplib.IMAP4_SSL("imap.gmail.com")
