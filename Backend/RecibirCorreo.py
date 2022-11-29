@@ -20,7 +20,7 @@ def conexionCorreo (username,password):
 
 def listaCorreos (pag,username,password):
     imap = conexionCorreo(username,password)
-    n = 1
+    n = 7
     Respuesta = {'Correos':[]}
     status, mensajes = imap.select("INBOX")
     if(status=='OK'):

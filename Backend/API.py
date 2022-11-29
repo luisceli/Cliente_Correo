@@ -2,11 +2,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI as fast
 import RecibirCorreo as rc
 import baseModels as bm
+import enviarCorreos as ec
 
 app = fast()
 
 origins = [
-    
+
     "http://localhost",
     "http://localhost:8080",
     "http://127.0.0.1:5500",
@@ -26,22 +27,26 @@ app.add_middleware(
 def ingresarUsuario (usuario: mE.usuario):
     inUsu(usuario.dict())
     return True'''
+
+
 @app.get("/ValidarCredenciales/{user},{pas}")
-def validarUsuario (user,pas):
-    respuesta = rc.conexionCorreo(user,pas)
+def validarUsuario(user, pas):
+    respuesta = rc.conexionCorreo(user, pas)
     if not respuesta == False:
         return True
     else:
         return False
 
+
 @app.get("/ListarCorreos/{pag},{user},{pas}")
-def validarUsuario (pag,user,pas):
-    respuesta = rc.listaCorreos(pag,user,pas)
+def validarUsuario(pag, user, pas):
+    respuesta = rc.listaCorreos(pag, user, pas)
     return respuesta
 
+
 @app.post("/enviarCorreo")
-def ingresarUsuario (correo: bm.Correo):
-    print(correo)
+def ingresarUsuario(correo: bm.Correo):
+    jcorreo = correo.dict()
+    respuesta = ec.EnvairCorreo(
+        jcorreo.Asunto, jcorreo.De, jcorreo.Para, jcorreo.Contenido, jcorreo.Clave)
     return True
-
-
