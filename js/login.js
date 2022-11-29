@@ -12,7 +12,7 @@ async function validarLogin(e){
 
 
     let validador =  await ValidarCredenciales(usuario,clave);
-    console.log(validador)
+    //console.log(validador)
     if (validador != false) {
         window.localStorage.setItem("Usuario",usuario);
         window.localStorage.setItem("Clave",clave);

@@ -74,11 +74,14 @@ box-sizing: border-box;
 /* tabla */
 
 .container{ 
+    width: 800px;
    display: flex;
    align-items: center;
    justify-content: center;
    min-height: 80vh;
-    
+   margin: 0 auto;    
+    margin-left: 32%;
+
 }
 
 table {
@@ -167,3 +170,6 @@ textarea{
         max-width: 400px;
 }
 
+.contenedor-asunto{
+    max-width: 200px;
+}

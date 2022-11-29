@@ -12,10 +12,13 @@ async function redactarCorreo(){
     correo.Contenido = document.querySelector("#msg").value
     correo.Clave=localStorage.getItem("Clave")
    // console.log(correo)
+
     await enviarCorreo(correo)
+
     document.querySelector("#asunto").value=""
     document.querySelector("#para").value=""
     document.querySelector("#msg").value=""
+    
     alert("Correo enviado")
 }
 
