@@ -31,15 +31,14 @@ def ingresarUsuario (usuario: mE.usuario):
 
 @app.get("/ValidarCredenciales/{user},{pas}")
 def validarUsuario(user, pas):
-    respuesta = rc.conexionCorreo(user, pas)
-    if not respuesta == False:
-        return True
-    else:
-        return False
+    respuesta = rc.validarCredenciales(user, pas)
+
+    return respuesta
 
 
 @app.get("/ListarCorreos/{pag},{user},{pas}")
 def validarUsuario(pag, user, pas):
+    pag = int(pag)
     respuesta = rc.listaCorreos(pag, user, pas)
     return respuesta
 
@@ -47,6 +46,7 @@ def validarUsuario(pag, user, pas):
 @app.post("/enviarCorreo")
 def ingresarUsuario(correo: bm.Correo):
     jcorreo = correo.dict()
+    print(correo.dict())
     respuesta = ec.EnvairCorreo(
-        jcorreo.Asunto, jcorreo.De, jcorreo.Para, jcorreo.Contenido, jcorreo.Clave)
+        jcorreo['Asunto'], jcorreo['De'], jcorreo['Para'], jcorreo['Contenido'], jcorreo['Clave'])
     return True

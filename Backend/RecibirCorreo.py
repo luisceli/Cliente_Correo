@@ -10,7 +10,8 @@ from datetime import datetime
 #username = 'marcelolatino.mx@gmail.com'
 #password = 'himlbcjvrjroplpl'
 
-def conexionCorreo (username,password):
+
+def conexionCorreo(username, password):
     imap = imaplib.IMAP4_SSL("imap.gmail.com")
     try:
         imap.login(username, password)
@@ -18,12 +19,20 @@ def conexionCorreo (username,password):
         return False
     return imap
 
-def listaCorreos (pag,username,password):
-    imap = conexionCorreo(username,password)
+
+def validarCredenciales(username, password):
+    validar = conexionCorreo(username, password)
+    if (validar == False):
+        return False
+    return True
+
+
+def listaCorreos(pag, username, password):
+    imap = conexionCorreo(username, password)
     n = 7
-    Respuesta = {'Correos':[]}
+    Respuesta = {'Correos': []}
     status, mensajes = imap.select("INBOX")
-    if(status=='OK'):
+    if (status == 'OK'):
         minimo = n*pag
         maximo = int(mensajes[0])
         for i in range((maximo-(n*(pag-1))), maximo - minimo, -1):
@@ -42,39 +51,42 @@ def listaCorreos (pag,username,password):
                         subject = subject.decode()
                     # de donde viene el correo
                     from_ = mensajeD.get("From")
-                    fecha = mensajeD.get("Date")
-                    fecha = datetime.strptime(fecha, '%a, %d %b %Y %H:%M:%S %z (%Z)')
-                    
+                    fecha = str(mensajeD.get("Date"))
+                    # fecha = datetime.strptime(
+                    # fecha, '%a, %d %b %Y %H:%M:%S %z (%Z)')
 
-                    item = {'Asunto':subject,'De':from_,'Fecha':fecha.strftime("%d/%m/%Y")}
+                    item = {'Asunto': subject, 'De': from_,
+                            'Fecha': fecha}
                     if mensajeD.is_multipart():
-                    # Recorrer las partes del correo
+                        # Recorrer las partes del correo
                         for part in mensajeD.walk():
                             # Extraer el contenido
                             content_type = part.get_content_type()
-                            content_disposition = str(part.get("Content-Disposition"))
+                            content_disposition = str(
+                                part.get("Content-Disposition"))
                             if content_type == "text/plain":
                                 try:
                                     # el cuerpo del correo
-                                    body = part.get_payload(decode=True).decode()
+                                    body = part.get_payload(
+                                        decode=True).decode()
                                 except:
                                     pass
                                 if "attachment" not in content_disposition:
                                     item["Body"] = body
-                                    
+
                 else:
                     # contenido del mensaje
                     content_type = mensajeD.get_content_type()
                     if content_type == "text/plain":
                         # cuerpo del mensaje
                         body = mensajeD.get_payload(decode=True).decode()
-                        
+
                         item["Body"] = body
-                
-        Respuesta["Correos"].append(item)
+
+            Respuesta["Correos"].append(item)
         imap.close()
         imap.logout()
-        return Respuesta     
+        return Respuesta
     else:
         return False
 
