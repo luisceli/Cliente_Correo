@@ -48,6 +48,12 @@ box-sizing: border-box;
 .sidebarOption .material-icons{
     padding: 5px;
 }
+.sidebarOption a{
+    text-decoration: none;
+    margin-left: 15px;
+    cursor: pointer;
+    color: black;
+}
 .sidebarOption h3{
     flex: 1;
     margin-left: 10px;
@@ -156,3 +162,8 @@ textarea{
     border: none;
     margin-bottom: 5px;
 }
+
+.contenido-msg{
+        max-width: 400px;
+}
+

@@ -15,22 +15,22 @@
   <body>
     <div class="main_body">
       <div class="sidebar">
-        <button class="sidebar__compose">
+        <button class="sidebar__compose ">
           <span class="material-symbols-outlined">add</span>
           Seleccione
         </button>
-        <div class="sidebarOption sidebarOption__active">
+        <div class="sidebarOption  sidebarOption__active">
           <span class="material-symbols-outlined"
             ><span class="material-symbols-outlined"> contact_mail </span></span
           >
-          <h3>Redactar</h3>
+          <a href="redactarCorreo.html"> Redactar</a>
         </div>
 
-        <div class="sidebarOption">
+        <div class="sidebarOption ">
           <span class="material-symbols-outlined"
             ><span class="material-symbols-outlined"> filter_list </span></span
           >
-          <h3>Listar</h3>
+          <a href="correo.html">Listar</a>
         </div>
       </div>
     </div>
@@ -45,17 +45,14 @@
             
               <form action="">
                 <label for="Asunto">Asunto</label>
-                <input type="text" name="asunto">
-
-                <label for="De">De</label>
-                <input type="text" name="de">
+                <input type="text" name="asunto" id="asunto">
 
                 <label for="Para">Para</label>
-                <input type="email" name="para">
+                <input type="email" name="para" id="para">
 
-                <textarea name="msg" placeholder="Contenido Mensaje"></textarea>
+                <textarea name="msg" placeholder="Contenido Mensaje" id="msg"></textarea>
 
-                <input type="submit">
+                <input type="button" id="btn-enviar" value="enviar">
                 
               </form>
               
@@ -64,5 +61,6 @@
     
       </div>
     </div>
+    <script src="js/redactar.js" type="module"></script>
   </body>
 </html>
